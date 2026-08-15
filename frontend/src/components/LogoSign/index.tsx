@@ -21,7 +21,7 @@ const LogoWrapper = styled('a')(
 );
 
 const LogoMark = styled(Box)(
-  () => `
+  ({ theme }) => `
     display: block;
     width: 100%;
     height: 100%;
@@ -36,8 +36,13 @@ const LogoMark = styled(Box)(
     -webkit-mask-position: center;
     mask-position: center;
 
-    -webkit-mask-size: 438px 438px;
-    mask-size: 438px 438px;
+    -webkit-mask-size: 410px 410px;
+    mask-size: 410px 410px;
+
+    ${theme.breakpoints.down('sm')} {
+      -webkit-mask-size: 325px 325px;
+      mask-size: 325px 325px;
+    }
   `
 );
 
