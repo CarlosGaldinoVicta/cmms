@@ -8,7 +8,7 @@ services:
     expose:
       - "5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data_clean:/var/lib/postgresql/data
 
   api:
     image: intelloop/atlas-cmms-backend
@@ -105,21 +105,21 @@ services:
     image: intelloop/atlas-cmms-frontend
     environment:
       API_URL: /api
-      GOOGLE_KEY: ${GOOGLE_KEY:-}
-      GOOGLE_TRACKING_ID: ${GOOGLE_TRACKING_ID:-}
+      GOOGLE_KEY: ${GOOGLE_KEY:- }
+      GOOGLE_TRACKING_ID: ${GOOGLE_TRACKING_ID:- }
       INVITATION_VIA_EMAIL: ${INVITATION_VIA_EMAIL:-false}
       CLOUD_VERSION: ${CLOUD_VERSION:-false}
       NODE_ENV: production
       ENABLE_SSO: ${ENABLE_SSO:-false}
-      OAUTH2_PROVIDER: ${OAUTH2_PROVIDER:-}
-      LOGO_PATHS: ${LOGO_PATHS:-}
-      CUSTOM_COLORS: ${CUSTOM_COLORS:-}
-      BRAND_CONFIG: ${BRAND_CONFIG:-}
-      DEMO_LINK: ${DEMO_LINK:-}
+      OAUTH2_PROVIDER: ${OAUTH2_PROVIDER:- }
+      LOGO_PATHS: ${LOGO_PATHS:- }
+      CUSTOM_COLORS: ${CUSTOM_COLORS:- }
+      BRAND_CONFIG: ${BRAND_CONFIG:- }
+      DEMO_LINK: ${DEMO_LINK:- }
       HOME_URL: ${HOME_URL:-https://atlas-cmms.com}
-      PADDLE_SECRET_TOKEN: ${PADDLE_SECRET_TOKEN:-}
+      PADDLE_SECRET_TOKEN: ${PADDLE_SECRET_TOKEN:- }
       PADDLE_ENVIRONMENT: ${PADDLE_ENVIRONMENT:-sandbox}
-      RECAPTCHA_SITE_KEY: ${RECAPTCHA_SITE_KEY:-}
+      RECAPTCHA_SITE_KEY: ${RECAPTCHA_SITE_KEY:- }
       LDAP_ENABLED: ${LDAP_ENABLED:-false}
     expose:
       - "3000"
@@ -132,7 +132,7 @@ services:
       MINIO_ROOT_USER: ${MINIO_USER}
       MINIO_ROOT_PASSWORD: ${MINIO_PASSWORD}
     volumes:
-      - minio_data:/data
+      - minio_data_clean:/data
     expose:
       - "9000"
       - "9001"
@@ -150,5 +150,5 @@ services:
       - "80"
 
 volumes:
-  postgres_data:
-  minio_data:
+  postgres_data_clean:
+  minio_data_clean:
