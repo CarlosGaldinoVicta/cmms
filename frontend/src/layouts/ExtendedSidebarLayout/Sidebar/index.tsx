@@ -5,35 +5,70 @@ import { SidebarContext } from 'src/contexts/SidebarContext';
 import {
   alpha,
   Box,
-  Button,
   darken,
   Divider,
   Drawer,
   lighten,
-  Link,
-  Stack,
   styled,
   Typography,
   useTheme
 } from '@mui/material';
+
 import SidebarMenu from './SidebarMenu';
 import SidebarFooter from './SidebarFooter';
-import Logo from 'src/components/LogoSign';
-import { isCloudVersion, isWhiteLabeled } from '../../../config';
-import useAuth from '../../../hooks/useAuth';
-import dayjs from 'dayjs';
+import { isWhiteLabeled } from '../../../config';
 
 const SidebarWrapper = styled(Box)(
   ({ theme }) => `
-        width: ${theme.sidebar.width};
-        min-width: ${theme.sidebar.width};
-        color: ${theme.colors.alpha.trueWhite[70]};
-        position: relative;
-        z-index: 7;
-        height: 100%;
-        padding-bottom: 61px;
-`
+    width: ${theme.sidebar.width};
+    min-width: ${theme.sidebar.width};
+    color: ${theme.colors.alpha.trueWhite[70]};
+    position: relative;
+    z-index: 7;
+    height: 100%;
+    padding-bottom: 61px;
+  `
 );
+
+function VictaBrand() {
+  return (
+    <Box sx={{ textAlign: 'center' }}>
+      <Box
+        component="img"
+        src="/static/images/logo/victa-white.png"
+        alt="Victa"
+        sx={{
+          display: 'block',
+          width: '190px',
+          height: '36px',
+          mx: 'auto',
+          objectFit: 'cover',
+          objectPosition: 'center'
+        }}
+      />
+
+      {!isWhiteLabeled && (
+        <Typography
+          sx={{
+            mt: 0.5,
+            cursor: 'pointer',
+            color: 'white',
+            fontSize: 13
+          }}
+          onClick={() => {
+            window.open(
+              'https://www.intel-loop.com/',
+              '_blank',
+              'noopener,noreferrer'
+            );
+          }}
+        >
+          Powered by Intelloop
+        </Typography>
+      )}
+    </Box>
+  );
+}
 
 function Sidebar() {
   const { sidebarToggle, toggleSidebar } = useContext(SidebarContext);
@@ -68,22 +103,10 @@ function Sidebar() {
                 flexDirection: 'row'
               }}
             >
-              <Box>
-                <Logo white />
-                {!isWhiteLabeled && (
-                  <Typography
-                    style={{ cursor: 'pointer', color: 'white' }}
-                    fontSize={13}
-                    onClick={() => {
-                      window.open('https://www.intel-loop.com/', '_blank');
-                    }}
-                  >
-                    Powered by Intelloop
-                  </Typography>
-                )}
-              </Box>
+              <VictaBrand />
             </Box>
           </Box>
+
           <Divider
             sx={{
               mt: theme.spacing(1),
@@ -91,15 +114,19 @@ function Sidebar() {
               background: theme.colors.alpha.trueWhite[10]
             }}
           />
+
           <SidebarMenu />
         </Scrollbar>
+
         <Divider
           sx={{
             background: theme.colors.alpha.trueWhite[10]
           }}
         />
+
         <SidebarFooter />
       </SidebarWrapper>
+
       <Drawer
         sx={{
           boxShadow: `${theme.sidebar.boxShadow}`
@@ -127,22 +154,10 @@ function Sidebar() {
                   flexDirection: 'row'
                 }}
               >
-                <Box>
-                  <Logo white />
-                  {!isWhiteLabeled && (
-                    <Typography
-                      style={{ cursor: 'pointer', color: 'white' }}
-                      fontSize={13}
-                      onClick={() => {
-                        window.open('https://www.intel-loop.com/', '_blank');
-                      }}
-                    >
-                      Powered by Intelloop
-                    </Typography>
-                  )}
-                </Box>
+                <VictaBrand />
               </Box>
             </Box>
+
             <Divider
               sx={{
                 mt: theme.spacing(1),
@@ -150,8 +165,10 @@ function Sidebar() {
                 background: theme.colors.alpha.trueWhite[10]
               }}
             />
+
             <SidebarMenu />
           </Scrollbar>
+
           <SidebarFooter />
         </SidebarWrapper>
       </Drawer>
