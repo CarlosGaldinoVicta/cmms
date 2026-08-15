@@ -102,7 +102,9 @@ services:
       - "8080"
 
   frontend:
-    image: intelloop/atlas-cmms-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     environment:
       API_URL: /api
       GOOGLE_KEY: ${GOOGLE_KEY:- }
