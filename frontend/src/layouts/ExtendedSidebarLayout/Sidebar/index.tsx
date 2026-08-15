@@ -34,26 +34,39 @@ function VictaBrand() {
   return (
     <Box sx={{ textAlign: 'center' }}>
       <Box
-        component="img"
-        src="/static/images/logo/victa-white.png"
-        alt="Victa"
+        role="img"
+        aria-label="Victa — A fórmula da excelência"
         sx={{
           display: 'block',
-          width: '190px',
-          height: '36px',
+          width: '210px',
+          height: '32px',
           mx: 'auto',
-          objectFit: 'cover',
-          objectPosition: 'center'
+          backgroundColor: '#FFFFFF',
+
+          WebkitMaskImage:
+            "url('/static/images/logo/victa-white.png')",
+          maskImage:
+            "url('/static/images/logo/victa-white.png')",
+
+          WebkitMaskRepeat: 'no-repeat',
+          maskRepeat: 'no-repeat',
+
+          WebkitMaskPosition: 'center',
+          maskPosition: 'center',
+
+          WebkitMaskSize: '235px 235px',
+          maskSize: '235px 235px'
         }}
       />
 
       {!isWhiteLabeled && (
         <Typography
           sx={{
-            mt: 0.5,
+            mt: 0.75,
             cursor: 'pointer',
             color: 'white',
-            fontSize: 13
+            fontSize: 13,
+            lineHeight: 1.2
           }}
           onClick={() => {
             window.open(
@@ -91,7 +104,9 @@ function Sidebar() {
               ? alpha(lighten(theme.header.background, 0.1), 0.5)
               : darken(theme.colors.alpha.black[100], 0.5),
           boxShadow:
-            theme.palette.mode === 'dark' ? theme.sidebar.boxShadow : 'none'
+            theme.palette.mode === 'dark'
+              ? theme.sidebar.boxShadow
+              : 'none'
         }}
       >
         <Scrollbar>
