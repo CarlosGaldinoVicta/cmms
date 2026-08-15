@@ -1,6 +1,6 @@
 import { styled } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { getLocalizedHomeUrl } from '../utils/urlPaths';
+import { getLocalizedHomeUrl } from '../../utils/urlPaths';
 
 const LogoWrapper = styled('a')(
   ({ theme }) => `
@@ -9,7 +9,7 @@ const LogoWrapper = styled('a')(
     justify-content: center;
     width: 360px;
     max-width: 90%;
-    margin: 0 auto;
+    margin: 0 auto 18px;
     text-decoration: none;
 
     ${theme.breakpoints.down('sm')} {
