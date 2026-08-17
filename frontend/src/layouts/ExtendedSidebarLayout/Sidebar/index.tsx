@@ -38,8 +38,8 @@ function VictaBrand() {
         aria-label="Victa — A fórmula da excelência"
         sx={{
           display: 'block',
-          width: '210px',
-          height: '32px',
+          width: '220px',
+          height: '36px',
           mx: 'auto',
           backgroundColor: '#FFFFFF',
 
@@ -54,8 +54,8 @@ function VictaBrand() {
           WebkitMaskPosition: 'center',
           maskPosition: 'center',
 
-          WebkitMaskSize: '235px 235px',
-          maskSize: '235px 235px'
+          WebkitMaskSize: '220px 220px',
+          maskSize: '220px 220px'
         }}
       />
 
@@ -64,7 +64,7 @@ function VictaBrand() {
           sx={{
             mt: 0.75,
             cursor: 'pointer',
-            color: 'white',
+            color: '#FFFFFF',
             fontSize: 13,
             lineHeight: 1.2
           }}
